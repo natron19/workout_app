@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.Feature "Creating home page" do
+RSpec.feature "Creating home page" do
 
   scenario "Visit home page" do
     visit "/"
@@ -9,5 +9,4 @@ RSpec.Feature "Creating home page" do
     expect(page).to have_link("Home")
     expect(page).to have_content("Workout Lounge")
   end
-
 end
