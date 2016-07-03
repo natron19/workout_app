@@ -3,6 +3,7 @@ class ExercisesController < ApplicationController
   before_action :set_exercise, except: [:index, :new, :create]
 
   def index
+    @exercises = current_user.exercises.all
   end
 
   def new
@@ -23,6 +24,13 @@ class ExercisesController < ApplicationController
 
   def show
 
+  end
+
+  def destroy
+    if @exercise.destroy
+      flash[:success] = "Exercise has been deleted"
+      redirect_to exercises_path
+    end
   end
 
   private
