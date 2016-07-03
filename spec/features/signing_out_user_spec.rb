@@ -4,7 +4,7 @@ RSpec.feature "User sign out" do
 
   before do
 
-    @john = User.create!(email: "john@example", password: "password")
+    @john = User.create!(first_name: "john", last_name: "doe", email: "john@example", password: "password")
 
     visit "/"
 
