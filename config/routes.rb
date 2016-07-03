@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: 'dashboard#index'
 
+  resource :dashboard, only: [:index] do
+    collection do
+      post :search, to: 'dashboard#search'
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
