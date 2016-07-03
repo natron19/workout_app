@@ -26,19 +26,13 @@ class ExercisesController < ApplicationController
 
   end
 
-  def destroy
-    if @exercise.destroy
-      flash[:success] = "Exercise has been deleted"
-      redirect_to exercises_path
-    end
-  end
 
   def edit
   end
 
   def update
     if @exercise.update(exercise_params)
-      flash[:success] = "exercise has been updated"
+      flash[:success] = "Exercise has been updated"
       redirect_to [current_user, @exercise]
     else
       flash[:danger] = "Exercise has not been updated"
@@ -46,6 +40,13 @@ class ExercisesController < ApplicationController
     end
   end
 
+
+  def destroy
+    if @exercise.destroy
+      flash[:success] = "Exercise has been deleted"
+      redirect_to user_exercises_path(current_user)
+    end
+  end
 
 
   private
